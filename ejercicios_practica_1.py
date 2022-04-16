@@ -16,7 +16,7 @@ def ej1():
     print('Ejercicios con diccionarios 1º')
     # Crear un diccionario vacio
     # el diccionario vacio debe llamarse "stock"
-    
+
     # stock = ....
 
     # Luego de crear el diccionario completelo
@@ -28,19 +28,35 @@ def ej1():
     # Los nombres tornillos, tuercas y arandelas
     # son las claves (keys) del diccionario
     # mientras que las cantidades son los valores (values)
-
+    
+    
     # Una vez armado el diccionario imprimirlo en pantalla con print
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
-
-
+    # Primera forma de hacerlo
+    print("-" * 50)
+    print("Una forma de hacerlo")
+    stock = {}
+    stock['tornillos'] = 100
+    stock['tuercas'] = 150
+    stock['arandelas'] = 300
+    print(stock)    
+    
+    # Segunda forma de hacerlo
+    print("-" * 50)
+    print("Otra forma de hacerlo")
+    stock = {}
+    stock = {'tornillos': 100, 'tuercas': 150, 'arandelas': 300}
+    print(stock)
+    print("-" * 50)
+    
 def ej2():
     print('Ejercicio con diccionarios 2º')
     # Basado en el ejercicio anterior ej1, utilizaremos el diccionario
     # como una base de datos. Comenzaremos con un diccionario de stock
     # de nuestros productos en cero:
     
-    strock = {'tornillos': 0, 'tuercas': 0, 'arandelas': 0}
+    #stock = {'tornillos': 0, 'tuercas': 0, 'arandelas': 0}
 
     # Paso 1:
     # Crear un bucle utilizando while que se ejecute de forma infinita
@@ -54,7 +70,7 @@ def ej2():
     #   - Si el usuario ingresa un producto no definido en el stock
     #   se debe enviar un mensaje de error. (si desea investigar esto
     #   se resuelve muy bien utilizando el operador "in" con diccionarios)
-
+    
     # Paso 3:
     # Luego de haber ingresado el producto se debe ingresar por consola
     # cuanto stock de ese producto se desea agregar al stock.
@@ -66,7 +82,18 @@ def ej2():
     # imprimir en pantalla con print el diccionario con el stock final
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
-
+    stock = {'tornillos': 0, 'tuercas': 0, 'arandelas': 0}
+    while True:
+        producto = str(input("Ingrese el producto a modificar stock -FIN (para finalizar): "))
+        if producto.upper() == 'FIN':
+            break
+        elif producto not in stock:
+            print("El producto no se encuentra en nuestro catalogo")        
+        else:
+            cantidad = int(input("Ingrese la cantidad del producto: "))
+            stock[producto] += cantidad
+    
+    print(stock)
 
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
